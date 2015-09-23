@@ -1,0 +1,17 @@
+<com.approuter.studio.repository.model.EntryMetaData>
+  <__metaData>
+    <properties>
+      <entry>
+        <string>variables</string>
+        <list>
+          <string>sender</string>
+          <string>sndg</string>
+        </list>
+      </entry>
+    </properties>
+  </__metaData>
+  <__namespace>http://www.approuter.com/schemas/2003/1/xmlschema/</__namespace>
+  <__valid>true</__valid>
+  <__hidden>false</__hidden>
+  <__guid>4D8B560A2E3A33687E63B16DFFD0A766835D7BA0C400BA1D6FAF15989DF7C8ED</__guid>
+</com.approuter.studio.repository.model.EntryMetaData>

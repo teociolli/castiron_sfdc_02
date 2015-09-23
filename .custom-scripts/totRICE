@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><userScript xmlns="http://www.approuter.com/schemas/2003/1/UserCallouts/"><functionName>totRICE</functionName><arguments><argument required="true" type="string" name="direction"/><argument required="true" type="number" name="nummsg"/><argument required="true" type="number" name="totmsg"/></arguments><result type="number"/><body>if (direction != 'RICE')
+  nummsg = 0;
+
+return totmsg + nummsg;</body></userScript>

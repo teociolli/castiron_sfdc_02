@@ -1,0 +1,99 @@
+<document name="FIM5_schema" documentNamespace="" encoding="US ASCII" serializeCRLF="true" eosDelimited="true" xmlns="http://www.approuter.com/schemas/2003/2/connector/file/fsd/">
+  <types/>
+  <message name="FIM5_schema" recordTemplate="" structure="delimited" childOrder="infix" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+    <childDelimiter>
+      <isNewline>true</isNewline>
+    </childDelimiter>
+    <repeatDelimiter>
+      <isNewline>true</isNewline>
+    </repeatDelimiter>
+    <children>
+      <order>
+        <record name="intestazione" recordTemplate="" structure="delimited" childOrder="infix" recordIdentifier="00" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+          <childDelimiter>
+            <character type="ascii" value="|"/>
+          </childDelimiter>
+          <children>
+            <order>
+              <field name="riga" fieldTemplate="" length="0" minOccurs="1" maxOccurs="1">
+                <escapeChar>
+                  <character type="ascii" value="&quot;"/>
+                </escapeChar>
+                <encapsulationChar>
+                  <character type="ascii" value="&quot;"/>
+                </encapsulationChar>
+              </field>
+            </order>
+          </children>
+        </record>
+      </order>
+      <order>
+        <record name="dati" recordTemplate="" structure="positional" recordIdentifier="FI" recordIdentifierOffset="1" maxOccurs="unbounded" minOccurs="1">
+          <children>
+            <order>
+              <field name="MS5" fieldTemplate="" offset="1" length="3" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="data_invio" fieldTemplate="" offset="1" length="10" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="data_flusso" fieldTemplate="" offset="1" length="10" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cod_abi" fieldTemplate="" offset="1" length="5" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="mese" fieldTemplate="" offset="1" length="7" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="direction" fieldTemplate="" offset="1" length="4" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="tipo_msg" fieldTemplate="" offset="1" length="8" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cod_rec" fieldTemplate="" offset="1" length="11" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cod_snd" fieldTemplate="" offset="1" length="11" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="tag49" fieldTemplate="" offset="1" length="12" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="div" fieldTemplate="" offset="1" length="3" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="segno" fieldTemplate="" offset="1" length="1" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="imp" fieldTemplate="" type="xs:decimal" offset="1" length="16" minOccurs="1" maxOccurs="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </order>
+            <order>
+              <field name="num_msg" fieldTemplate="" type="xs:integer" offset="1" length="11" minOccurs="1" maxOccurs="1" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </order>
+            <order>
+              <field name="filler" fieldTemplate="" offset="1" length="56" minOccurs="1" maxOccurs="1">
+                <escapeChar>
+                  <character type="ascii" value="&quot;"/>
+                </escapeChar>
+                <encapsulationChar>
+                  <character type="ascii" value="&quot;"/>
+                </encapsulationChar>
+              </field>
+            </order>
+          </children>
+        </record>
+      </order>
+      <order>
+        <record name="piede" recordTemplate="" structure="delimited" childOrder="infix" recordIdentifier="99" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+          <children>
+            <order>
+              <field name="riga" fieldTemplate="" length="0" minOccurs="1" maxOccurs="1"/>
+            </order>
+          </children>
+        </record>
+      </order>
+    </children>
+  </message>
+</document>

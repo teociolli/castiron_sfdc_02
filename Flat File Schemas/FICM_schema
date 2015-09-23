@@ -1,0 +1,78 @@
+<document name="FICM" documentNamespace="" encoding="US ASCII" serializeCRLF="true" eosDelimited="true" xmlns="http://www.approuter.com/schemas/2003/2/connector/file/fsd/">
+  <types/>
+  <message name="FICM" recordTemplate="" structure="delimited" childOrder="infix" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+    <childDelimiter>
+      <isNewline>true</isNewline>
+    </childDelimiter>
+    <repeatDelimiter>
+      <isNewline>true</isNewline>
+    </repeatDelimiter>
+    <children>
+      <order>
+        <record name="intestazione" recordTemplate="" structure="delimited" childOrder="infix" recordIdentifier="00" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+          <childDelimiter>
+            <character type="ascii" value="|"/>
+          </childDelimiter>
+          <children>
+            <order>
+              <field name="riga" fieldTemplate="" length="0" minOccurs="1" maxOccurs="1">
+                <escapeChar>
+                  <character type="ascii" value="&quot;"/>
+                </escapeChar>
+                <encapsulationChar>
+                  <character type="ascii" value="&quot;"/>
+                </encapsulationChar>
+              </field>
+            </order>
+          </children>
+        </record>
+      </order>
+      <order>
+        <record name="dati" recordTemplate="" structure="positional" recordIdentifier="FI" recordIdentifierOffset="1" maxOccurs="unbounded" minOccurs="1">
+          <children>
+            <order>
+              <field name="CMB" fieldTemplate="" offset="1" length="3" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="data_invio" fieldTemplate="" offset="1" length="10" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="data_cambio" fieldTemplate="" offset="1" length="8" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cod_div_uic" fieldTemplate="" offset="1" length="3" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cod_div_iso" fieldTemplate="" offset="1" length="3" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="desc_div" fieldTemplate="" offset="1" length="20" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="cambio" fieldTemplate="" offset="1" length="13" minOccurs="1" maxOccurs="1"/>
+            </order>
+            <order>
+              <field name="filler" fieldTemplate="" offset="1" length="18" minOccurs="1" maxOccurs="1">
+                <escapeChar>
+                  <character type="ascii" value="&quot;"/>
+                </escapeChar>
+                <encapsulationChar>
+                  <character type="ascii" value="&quot;"/>
+                </encapsulationChar>
+              </field>
+            </order>
+          </children>
+        </record>
+      </order>
+      <order>
+        <record name="piede" recordTemplate="" structure="delimited" childOrder="infix" recordIdentifier="99" delimitEmptyData="true" maxOccurs="1" minOccurs="1">
+          <children>
+            <order>
+              <field name="riga" fieldTemplate="" length="0" minOccurs="1" maxOccurs="1" justification="left"/>
+            </order>
+          </children>
+        </record>
+      </order>
+    </children>
+  </message>
+</document>

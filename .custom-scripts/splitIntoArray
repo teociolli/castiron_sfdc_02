@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><userScript xmlns="http://www.approuter.com/schemas/2003/1/UserCallouts/"><functionName>splitIntoArray</functionName><arguments><argument required="true" type="string" name="input"/></arguments><result type="string"/><body>var ciccio = input.split(" ");
+var len = ciccio.length; 
+return ciccio[len - 1];</body></userScript>

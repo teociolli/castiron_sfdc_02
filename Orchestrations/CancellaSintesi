@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process currentId="8" name="CancellaSintesi" persistenceEnabled="true" selectedActivityId="5" serialize="false" targetNamespace="http://www.approuter.com/schemas/2004/01/maestro/process/" xmlns="http://www.approuter.com/schemas/2004/01/maestro/process/" xmlns:bpel-ext="http://www.approuter.com/schemas/2003/1/bpel-ext/" xmlns:bpws="http://www.approuter.com/schemas/2004/01/maestro/process/" xmlns:fn="http://www.w3.org/2002/11/xquery-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"><schemas><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="userTerritoryDelete-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <simpleType name="ID">
+        <restriction base="xsd:string">
+            <length value="18"/>
+            <pattern value='[a-zA-Z0-9]{18}'/>
+        </restriction>
+    </simpleType>
+
+    <element name="UserTerritoryDeleteHeader">
+        <complexType>
+            <sequence>
+                <element name="transferToUserId" type="tns:ID" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="email-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+    <element name="EmailHeader">
+        <complexType>
+            <sequence>
+                <element name="triggerAutoResponseEmail" 	type="xsd:boolean"/>
+                <element name="triggerOtherEmail" 			type="xsd:boolean"/>
+                <element name="triggerUserEmail"  			type="xsd:boolean"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="sessionInfo-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        elementFormDefault="qualified">
+
+    <element name="sessionInfo">
+        <complexType>
+            <sequence>
+                <element name="serverURL" type="xsd:string"/>
+                <element name="sessionId" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="deleteResult-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <simpleType name="ID">
+        <restriction base="xsd:string">
+            <length value="18"/>
+            <pattern value='[a-zA-Z0-9]{18}'/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="StatusCode">
+		<restriction base="xsd:string">
+			<enumeration value="ALL_OR_NONE_OPERATION_ROLLED_BACK"/>
+			<enumeration value="ALREADY_IN_PROCESS"/>
+			<enumeration value="ASSIGNEE_TYPE_REQUIRED"/>
+			<enumeration value="BAD_CUSTOM_ENTITY_PARENT_DOMAIN"/>
+			<enumeration value="BCC_NOT_ALLOWED_IF_BCC_COMPLIANCE_ENABLED"/>
+			<enumeration value="CANNOT_CASCADE_PRODUCT_ACTIVE"/>
+			<enumeration value="CANNOT_CHANGE_FIELD_TYPE_OF_APEX_REFERENCED_FIELD"/>
+			<enumeration value="CANNOT_CHANGE_FIELD_TYPE_OF_REFERENCED_FIELD"/>
+			<enumeration value="CANNOT_CREATE_ANOTHER_MANAGED_PACKAGE"/>
+			<enumeration value="CANNOT_DEACTIVATE_DIVISION"/>
+			<enumeration value="CANNOT_DELETE_LAST_DATED_CONVERSION_RATE"/>
+			<enumeration value="CANNOT_DELETE_MANAGED_OBJECT"/>
+			<enumeration value="CANNOT_DISABLE_LAST_ADMIN"/>
+			<enumeration value="CANNOT_ENABLE_IP_RESTRICT_REQUESTS"/>
+			<enumeration value="CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY"/>
+			<enumeration value="CANNOT_MODIFY_MANAGED_OBJECT"/>
+			<enumeration value="CANNOT_RENAME_APEX_REFERENCED_FIELD"/>
+			<enumeration value="CANNOT_RENAME_APEX_REFERENCED_OBJECT"/>
+			<enumeration value="CANNOT_RENAME_REFERENCED_FIELD"/>
+			<enumeration value="CANNOT_RENAME_REFERENCED_OBJECT"/>
+			<enumeration value="CANNOT_REPARENT_RECORD"/>
+			<enumeration value="CANNOT_UPDATE_CONVERTED_LEAD"/>
+			<enumeration value="CANT_DISABLE_CORP_CURRENCY"/>
+			<enumeration value="CANT_UNSET_CORP_CURRENCY"/>
+			<enumeration value="CHILD_SHARE_FAILS_PARENT"/>
+			<enumeration value="CIRCULAR_DEPENDENCY"/>
+			<enumeration value="COMMUNITY_NOT_ACCESSIBLE"/>
+			<enumeration value="CUSTOM_CLOB_FIELD_LIMIT_EXCEEDED"/>
+			<enumeration value="CUSTOM_ENTITY_OR_FIELD_LIMIT"/>
+			<enumeration value="CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED"/>
+			<enumeration value="CUSTOM_INDEX_EXISTS"/>
+			<enumeration value="CUSTOM_LINK_LIMIT_EXCEEDED"/>
+			<enumeration value="CUSTOM_TAB_LIMIT_EXCEEDED"/>
+			<enumeration value="DELETE_FAILED"/>
+			<enumeration value="DELETE_OPERATION_TOO_LARGE"/>
+			<enumeration value="DELETE_REQUIRED_ON_CASCADE"/>
+			<enumeration value="DEPENDENCY_EXISTS"/>
+			<enumeration value="DUPLICATE_CASE_SOLUTION"/>
+			<enumeration value="DUPLICATE_COMM_NICKNAME"/>
+			<enumeration value="DUPLICATE_CUSTOM_ENTITY_DEFINITION"/>
+			<enumeration value="DUPLICATE_CUSTOM_TAB_MOTIF"/>
+			<enumeration value="DUPLICATE_DEVELOPER_NAME"/>
+			<enumeration value="DUPLICATE_EXTERNAL_ID"/>
+			<enumeration value="DUPLICATE_MASTER_LABEL"/>
+			<enumeration value="DUPLICATE_SENDER_DISPLAY_NAME"/>
+			<enumeration value="DUPLICATE_USERNAME"/>
+			<enumeration value="DUPLICATE_VALUE"/>
+			<enumeration value="EMAIL_NOT_PROCESSED_DUE_TO_PRIOR_ERROR"/>
+			<enumeration value="EMPTY_SCONTROL_FILE_NAME"/>
+			<enumeration value="ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE"/>
+			<enumeration value="ENTITY_IS_ARCHIVED"/>
+			<enumeration value="ENTITY_IS_DELETED"/>
+			<enumeration value="ENTITY_IS_LOCKED"/>
+			<enumeration value="ENVIRONMENT_HUB_MEMBERSHIP_CONFLICT"/>
+			<enumeration value="ERROR_IN_MAILER"/>
+			<enumeration value="FAILED_ACTIVATION"/>
+			<enumeration value="FIELD_CUSTOM_VALIDATION_EXCEPTION"/>
+			<enumeration value="FIELD_FILTER_VALIDATION_EXCEPTION"/>
+			<enumeration value="FIELD_INTEGRITY_EXCEPTION"/>
+			<enumeration value="FILTERED_LOOKUP_LIMIT_EXCEEDED"/>
+			<enumeration value="HTML_FILE_UPLOAD_NOT_ALLOWED"/>
+			<enumeration value="IMAGE_TOO_LARGE"/>
+			<enumeration value="INACTIVE_OWNER_OR_USER"/>
+			<enumeration value="INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY"/>
+			<enumeration value="INSUFFICIENT_ACCESS_OR_READONLY"/>
+			<enumeration value="INVALID_ACCESS_LEVEL"/>
+			<enumeration value="INVALID_ARGUMENT_TYPE"/>
+			<enumeration value="INVALID_ASSIGNEE_TYPE"/>
+			<enumeration value="INVALID_ASSIGNMENT_RULE"/>
+			<enumeration value="INVALID_BATCH_OPERATION"/>
+			<enumeration value="INVALID_CONTENT_TYPE"/>
+			<enumeration value="INVALID_CREDIT_CARD_INFO"/>
+			<enumeration value="INVALID_CROSS_REFERENCE_KEY"/>
+			<enumeration value="INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD"/>
+			<enumeration value="INVALID_CURRENCY_CONV_RATE"/>
+			<enumeration value="INVALID_CURRENCY_CORP_RATE"/>
+			<enumeration value="INVALID_CURRENCY_ISO"/>
+			<enumeration value="INVALID_DATA_CATEGORY_GROUP_REFERENCE"/>
+			<enumeration value="INVALID_DATA_URI"/>
+			<enumeration value="INVALID_EMAIL_ADDRESS"/>
+			<enumeration value="INVALID_EMPTY_KEY_OWNER"/>
+			<enumeration value="INVALID_FIELD"/>
+			<enumeration value="INVALID_FIELD_FOR_INSERT_UPDATE"/>
+			<enumeration value="INVALID_FIELD_WHEN_USING_TEMPLATE"/>
+			<enumeration value="INVALID_FILTER_ACTION"/>
+			<enumeration value="INVALID_GOOGLE_DOCS_URL"/>
+			<enumeration value="INVALID_ID_FIELD"/>
+			<enumeration value="INVALID_INET_ADDRESS"/>
+			<enumeration value="INVALID_LINEITEM_CLONE_STATE"/>
+			<enumeration value="INVALID_MASTER_OR_TRANSLATED_SOLUTION"/>
+			<enumeration value="INVALID_MESSAGE_ID_REFERENCE"/>
+			<enumeration value="INVALID_OPERATION"/>
+			<enumeration value="INVALID_OPERATOR"/>
+			<enumeration value="INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST"/>
+			<enumeration value="INVALID_PACKAGE_VERSION"/>
+			<enumeration value="INVALID_PARTNER_NETWORK_STATUS"/>
+			<enumeration value="INVALID_PERSON_ACCOUNT_OPERATION"/>
+			<enumeration value="INVALID_QUERY_LOCATOR"/>
+			<enumeration value="INVALID_READ_ONLY_USER_DML"/>
+			<enumeration value="INVALID_SAVE_AS_ACTIVITY_FLAG"/>
+			<enumeration value="INVALID_SESSION_ID"/>
+			<enumeration value="INVALID_SETUP_OWNER"/>
+			<enumeration value="INVALID_STATUS"/>
+			<enumeration value="INVALID_TYPE"/>
+			<enumeration value="INVALID_TYPE_FOR_OPERATION"/>
+			<enumeration value="INVALID_TYPE_ON_FIELD_IN_RECORD"/>
+			<enumeration value="IP_RANGE_LIMIT_EXCEEDED"/>
+			<enumeration value="LICENSE_LIMIT_EXCEEDED"/>
+			<enumeration value="LIGHT_PORTAL_USER_EXCEPTION"/>
+			<enumeration value="LIMIT_EXCEEDED"/>
+			<enumeration value="MALFORMED_ID"/>
+			<enumeration value="MANAGER_NOT_DEFINED"/>
+			<enumeration value="MASSMAIL_RETRY_LIMIT_EXCEEDED"/>
+			<enumeration value="MASS_MAIL_LIMIT_EXCEEDED"/>
+			<enumeration value="MAXIMUM_CCEMAILS_EXCEEDED"/>
+			<enumeration value="MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED"/>
+			<enumeration value="MAXIMUM_HIERARCHY_LEVELS_REACHED"/>
+			<enumeration value="MAXIMUM_SIZE_OF_ATTACHMENT"/>
+			<enumeration value="MAXIMUM_SIZE_OF_DOCUMENT"/>
+			<enumeration value="MAX_ACTIONS_PER_RULE_EXCEEDED"/>
+			<enumeration value="MAX_ACTIVE_RULES_EXCEEDED"/>
+			<enumeration value="MAX_APPROVAL_STEPS_EXCEEDED"/>
+			<enumeration value="MAX_FORMULAS_PER_RULE_EXCEEDED"/>
+			<enumeration value="MAX_RULES_EXCEEDED"/>
+			<enumeration value="MAX_RULE_ENTRIES_EXCEEDED"/>
+			<enumeration value="MAX_TASK_DESCRIPTION_EXCEEEDED"/>
+			<enumeration value="MAX_TM_RULES_EXCEEDED"/>
+			<enumeration value="MAX_TM_RULE_ITEMS_EXCEEDED"/>
+			<enumeration value="MERGE_FAILED"/>
+			<enumeration value="MISSING_ARGUMENT"/>
+			<enumeration value="MIXED_DML_OPERATION"/>
+			<enumeration value="NONUNIQUE_SHIPPING_ADDRESS"/>
+			<enumeration value="NO_APPLICABLE_PROCESS"/>
+			<enumeration value="NO_ATTACHMENT_PERMISSION"/>
+			<enumeration value="NO_INACTIVE_DIVISION_MEMBERS"/>
+			<enumeration value="NO_MASS_MAIL_PERMISSION"/>
+			<enumeration value="NUMBER_OUTSIDE_VALID_RANGE"/>
+			<enumeration value="NUM_HISTORY_FIELDS_BY_SOBJECT_EXCEEDED"/>
+			<enumeration value="OPTED_OUT_OF_MASS_MAIL"/>
+			<enumeration value="OP_WITH_INVALID_USER_TYPE_EXCEPTION"/>
+			<enumeration value="PACKAGE_LICENSE_REQUIRED"/>
+			<enumeration value="PORTAL_NO_ACCESS"/>
+			<enumeration value="PORTAL_USER_ALREADY_EXISTS_FOR_CONTACT"/>
+			<enumeration value="PRIVATE_CONTACT_ON_ASSET"/>
+			<enumeration value="QUERY_TIMEOUT"/>
+			<enumeration value="RECORD_IN_USE_BY_WORKFLOW"/>
+			<enumeration value="REQUEST_RUNNING_TOO_LONG"/>
+			<enumeration value="REQUIRED_FEATURE_MISSING"/>
+			<enumeration value="REQUIRED_FIELD_MISSING"/>
+			<enumeration value="SELF_REFERENCE_FROM_TRIGGER"/>
+			<enumeration value="SHARE_NEEDED_FOR_CHILD_OWNER"/>
+			<enumeration value="SINGLE_EMAIL_LIMIT_EXCEEDED"/>
+			<enumeration value="STANDARD_PRICE_NOT_DEFINED"/>
+			<enumeration value="STORAGE_LIMIT_EXCEEDED"/>
+			<enumeration value="STRING_TOO_LONG"/>
+			<enumeration value="TABSET_LIMIT_EXCEEDED"/>
+			<enumeration value="TEMPLATE_NOT_ACTIVE"/>
+			<enumeration value="TERRITORY_REALIGN_IN_PROGRESS"/>
+			<enumeration value="TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET"/>
+			<enumeration value="TOO_MANY_APEX_REQUESTS"/>
+			<enumeration value="TOO_MANY_ENUM_VALUE"/>
+			<enumeration value="TRANSFER_REQUIRES_READ"/>
+			<enumeration value="UNABLE_TO_LOCK_ROW"/>
+			<enumeration value="UNAVAILABLE_RECORDTYPE_EXCEPTION"/>
+			<enumeration value="UNDELETE_FAILED"/>
+			<enumeration value="UNKNOWN_EXCEPTION"/>
+			<enumeration value="UNSPECIFIED_EMAIL_ADDRESS"/>
+			<enumeration value="UNSUPPORTED_APEX_TRIGGER_OPERATON"/>
+			<enumeration value="UNVERIFIED_SENDER_ADDRESS"/>
+			<enumeration value="USER_OWNS_PORTAL_ACCOUNT_EXCEPTION"/>
+			<enumeration value="USER_WITH_APEX_SHARES_EXCEPTION"/>
+			<enumeration value="WEBLINK_SIZE_LIMIT_EXCEEDED"/>
+			<enumeration value="WRONG_CONTROLLER_TYPE"/>
+		</restriction>
+	</simpleType>
+
+    <complexType name="Error">
+        <sequence>
+            <element name="fields"     type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="message"    type="xsd:string"/>
+            <element name="statusCode" type="tns:StatusCode"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DeleteResult">
+        <sequence>
+            <element name="errors"    type="tns:Error" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="id"        type="tns:ID" nillable="true"/>
+            <element name="success"   type="xsd:boolean"/>
+        </sequence>
+    </complexType>
+
+    <element name="results">
+        <complexType>
+            <sequence>
+                <element name="result" type="tns:DeleteResult" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>]]></schemaDescription><schemaDescription activityId="4" counter-for-extra-xml-schema="0" schemaId="http-receive-output-parameter-header.xsd-4"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="HeaderItemType">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="Headers">
+        <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="headerItem" type="HeaderItemType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="PathParameter">
+        <xsd:sequence/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="QueryParameter">
+        <xsd:sequence/>
+    </xsd:complexType>
+    
+    <xsd:complexType name="HttpHeaderType">
+        <xsd:sequence>
+            <xsd:element name="uri" type="xsd:string"/>
+            <xsd:element name="host" type="xsd:string"/>            
+            <xsd:element name="method" type="xsd:string"/>
+            <!-- start configurable headers --><!-- end configurable headers -->
+            <xsd:element maxOccurs="1" minOccurs="0" name="otherHeaders" type="Headers"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="httpheaders" type="HttpHeaderType"/>
+</xsd:schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="packageVersionHeader-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:partner.soap.sforce.com"
+    targetNamespace="urn:partner.soap.sforce.com"
+    elementFormDefault="qualified">
+    
+    <xsd:complexType name="PackageVersion">
+        <xsd:sequence>
+            <xsd:element name="majorNumber" type="xsd:int"/>
+            <xsd:element name="minorNumber" type="xsd:int"/>
+            <xsd:element name="namespace" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="PackageVersionHeader">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="packageVersions" minOccurs="0" maxOccurs="unbounded" type="tns:PackageVersion"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    
+</schema>]]></schemaDescription><schemaDescription activityId="4" counter-for-extra-xml-schema="0" schemaId="http-receive-output-parameter-body-string.xsd-4"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    targetNamespace="http://www.approuter.com/schemas/2003/1/castirontypes"
+    xmlns:tns="http://www.approuter.com/schemas/2003/1/castirontypes"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified">
+    <xsd:element name="body" type="xsd:string"/>
+</xsd:schema>
+]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="packageVersionHeader-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:partner.soap.sforce.com"
+    targetNamespace="urn:partner.soap.sforce.com"
+    elementFormDefault="qualified">
+    
+    <xsd:complexType name="PackageVersion">
+        <xsd:sequence>
+            <xsd:element name="majorNumber" type="xsd:int"/>
+            <xsd:element name="minorNumber" type="xsd:int"/>
+            <xsd:element name="namespace" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="PackageVersionHeader">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="packageVersions" minOccurs="0" maxOccurs="unbounded" type="tns:PackageVersion"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="params-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:sobject.partner.soap.sforce.com" targetNamespace="urn:sobject.partner.soap.sforce.com" elementFormDefault="qualified"><xsd:simpleType name="ID"><xsd:restriction base="xsd:string"><xsd:length value="18"/><xsd:pattern value="[a-zA-Z0-9]{18}"/></xsd:restriction></xsd:simpleType><xsd:element name="parameters"><xsd:complexType><xsd:sequence/></xsd:complexType></xsd:element></xsd:schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="sessionInfo-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        elementFormDefault="qualified">
+
+    <element name="sessionInfo">
+        <complexType>
+            <sequence>
+                <element name="serverURL" type="xsd:string"/>
+                <element name="sessionId" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="sessionInfo-out-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        elementFormDefault="qualified">
+
+    <element name="sessionInfo">
+        <complexType>
+            <sequence>
+                <element name="serverURL" type="xsd:string"/>
+                <element name="sessionId" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="sessionInfo-out-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+        elementFormDefault="qualified">
+
+    <element name="sessionInfo">
+        <complexType>
+            <sequence>
+                <element name="serverURL" type="xsd:string"/>
+                <element name="sessionId" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="ids-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <simpleType name="ID">
+        <restriction base="xsd:string">
+            <length value="18"/>
+            <pattern value='[a-zA-Z0-9]{18}'/>
+        </restriction>
+    </simpleType>
+
+    <element name="ids">
+        <complexType>
+            <sequence>
+                <element name="id" type="tns:ID" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="loginCredentials-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+	targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+	elementFormDefault="qualified">
+
+	<element name="connection">
+		<complexType>
+			<sequence>
+				<element name="loginUrl" type="xsd:string" minOccurs="0" />
+				<element name="username" type="xsd:string" />
+				<element name="password" type="xsd:string" />
+				<element name="proxy" type="tns:ProxyDetails"
+					minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<xsd:complexType name="ProxyDetails">
+		<xsd:sequence>
+			<xsd:element name="host" type="xsd:string" />
+			<xsd:element name="port" type="xsd:string" />
+			<xsd:element name="username" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</schema>
+]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="loginCredentials-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+	targetNamespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam"
+	elementFormDefault="qualified">
+
+	<element name="connection">
+		<complexType>
+			<sequence>
+				<element name="loginUrl" type="xsd:string" minOccurs="0" />
+				<element name="username" type="xsd:string" />
+				<element name="password" type="xsd:string" />
+				<element name="proxy" type="tns:ProxyDetails"
+					minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<xsd:complexType name="ProxyDetails">
+		<xsd:sequence>
+			<xsd:element name="host" type="xsd:string" />
+			<xsd:element name="port" type="xsd:string" />
+			<xsd:element name="username" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</schema>
+]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="disableFeedTracking-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+
+    <element name="DisableFeedTrackingHeader">
+        <complexType>
+            <sequence>
+                <element name="disableFeedTracking" type="xsd:boolean" />
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="callOptions-param.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <element name="CallOptions">
+        <complexType>
+            <sequence>
+                <element name="client" type="xsd:string" nillable="true"/>
+                <element name="defaultNamespace"  type="xsd:string" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="callOptions-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <element name="CallOptions">
+        <complexType>
+            <sequence>
+                <element name="client" type="xsd:string" nillable="true"/>
+                <element name="defaultNamespace"  type="xsd:string" nillable="true"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="objects-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:sobject.partner.soap.sforce.com" targetNamespace="urn:sobject.partner.soap.sforce.com" elementFormDefault="qualified"><xsd:simpleType name="ID"><xsd:restriction base="xsd:string"><xsd:length value="18"/><xsd:pattern value="[a-zA-Z0-9]{18}"/></xsd:restriction></xsd:simpleType><xsd:element name="objects"><xsd:complexType><xsd:sequence><xsd:element name="Sintesi_SWIFT__c" minOccurs="0" maxOccurs="unbounded"><xsd:complexType><xsd:sequence><xsd:element name="Id" type="ID"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element></xsd:schema>]]></schemaDescription><schemaDescription activityId="6" counter-for-extra-xml-schema="0" schemaId="mru-param.xsd-6"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="urn:partner.soap.sforce.com"
+        targetNamespace="urn:partner.soap.sforce.com"
+        elementFormDefault="qualified">
+
+    <element name="MruHeader">
+        <complexType>
+            <sequence>
+                <element name="updateMru" type="xsd:boolean" />
+            </sequence>
+        </complexType>
+    </element>
+    
+</schema>]]></schemaDescription><schemaDescription activityId="2" counter-for-extra-xml-schema="0" schemaId="orchestration_internal_variableJobInfo"><![CDATA[<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://www.approuter.com/schemas/2005/1/orchestration/jobinfo"
+            targetNamespace="http://www.approuter.com/schemas/2005/1/orchestration/jobinfo" elementFormDefault="qualified">
+    <xsd:element name="JobInfo" type="tns:JobInfoType"/>
+    <xsd:complexType name="JobInfoType">
+        <xsd:sequence>
+           <xsd:element name="jobId" type="xsd:string"/>
+           <xsd:element name="jobStartTime" type="xsd:dateTime"/>
+           <xsd:element name="projectName" type="xsd:string"/>
+           <xsd:element name="configurationName" type="xsd:string"/>
+           <xsd:element name="orchestrationName" type="xsd:string"/>
+           <xsd:element name="routerHostName" type="xsd:string"/>
+        </xsd:sequence>
+     </xsd:complexType>
+</xsd:schema>]]></schemaDescription><schemaDescription activityId="5" counter-for-extra-xml-schema="0" schemaId="allOrNoneHeader.xsd-5"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:partner.soap.sforce.com"
+    targetNamespace="urn:partner.soap.sforce.com"
+    elementFormDefault="qualified">
+
+        <xsd:element name="AllOrNoneHeader">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="allOrNone" type="xsd:boolean" />
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+</schema>]]></schemaDescription></schemas><dependecies><dependency id="4" projectNodeGuid="appnet-guid://C831943261F6DCE1E7FF351AA6AF31E33DDE846F7A870EB34E79B012FAA586E0" type="activity"/><dependency id="5" projectNodeGuid="appnet-guid://4CE3E6782F8574859CF028A3684948934165162DF3A3E5C328B27BD51EF697AE" type="activity"/><dependency id="6" projectNodeGuid="appnet-guid://4CE3E6782F8574859CF028A3684948934165162DF3A3E5C328B27BD51EF697AE" type="activity"/></dependecies><variables selectedVariableName="objects"><variable assignable="false" bpel-ext:location="orchestration_internal_variableJobInfo" bpel-ext:locationType="2" bpel-ext:originalRootNode="" bpel-ext:rootNode="JobInfo" bpel-ext:rootNodeNS="http://www.approuter.com/schemas/2005/1/orchestration/jobinfo" canBeSubstitutedFromUI="true" internal="true" name="JobInfo" readOnly="true" typeEditable="false"><description>L'orchestrazione crea questa variabile per ogni lavoro. Non è possibile rinominarla o eliminarla.</description></variable><variable assignable="true" bpel-ext:activityId="6" bpel-ext:location="objects-param.xsd-6" bpel-ext:locationType="2" bpel-ext:originalRootNode="objects" bpel-ext:originalRootNodeNS="urn:sobject.partner.soap.sforce.com" bpel-ext:rootNode="objects" bpel-ext:rootNodeNS="urn:sobject.partner.soap.sforce.com" canBeSubstitutedFromUI="true" internal="false" messageType="objects" name="objects" readOnly="false" typeEditable="true"><description>Variable Description</description></variable></variables><comments/><sequence activityId="2" comments="" configurationId="flow_sequence_id_1" description="Attività Avvia" expanded="true" name="Avvia"><start activityId="4" activityName="" comments="" configurationId="http_receiverequest_id" description="Questa attività rimane in ascolto di una richiesta sull'endpoint HTTP selezionato" expanded="true" moduleName="http://www.approuter.com/module/http/" name="Ricevi richiesta" partnerLink=""><outputMapSpecConfig><mapSpec context="orchestration" optionalParameterVisible="false" version="1.0" xmlns="http://www.approuter.com/schemas/2003/1/transformation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><specInfo><source activityId="4" canBeSubstitutedFromUI="true" displayName="httpheaders" isParameter="true" location="http-receive-output-parameter-header.xsd-4" locationType="2" logicalName="srcDoc1" messageType="httpheaders" optionalParameter="false" originalRootNodeName="httpheaders" rootNodeName="httpheaders" varName="httpheaders"/><source activityId="4" canBeSubstitutedFromUI="true" displayName="body" isParameter="true" location="http-receive-output-parameter-body-string.xsd-4" locationType="2" logicalName="srcDoc2" messageType="body" namespace="http://www.approuter.com/schemas/2003/1/castirontypes" optionalParameter="false" originalRootNodeName="body" originalRootNodeNameNS="http://www.approuter.com/schemas/2003/1/castirontypes" rootNodeName="body"/></specInfo><doMapping/></mapSpec></outputMapSpecConfig><tasksConfig><com.approuter.studio.connectors.task.TaskList><![CDATA[
+  ]]><tasks><![CDATA[
+    ]]><com.approuter.studio.connectors.task.SummaryTask><![CDATA[
+      ]]><key><![CDATA[summaryTask]]></key><![CDATA[
+      ]]><children/><![CDATA[
+      ]]><model><![CDATA[
+        ]]><map><![CDATA[
+          ]]><entry><![CDATA[
+            ]]><string><![CDATA[selected]]></string><![CDATA[
+            ]]><string><![CDATA[false]]></string><![CDATA[
+          ]]></entry><![CDATA[
+        ]]></map><![CDATA[
+      ]]></model><![CDATA[
+      ]]><listeners/><![CDATA[
+    ]]></com.approuter.studio.connectors.task.SummaryTask><![CDATA[
+    ]]><com.approuter.studio.connectors.http.tasks.HTTPEndpointTask><![CDATA[
+      ]]><key><![CDATA[endpointTask]]></key><![CDATA[
+      ]]><children/><![CDATA[
+      ]]><model><![CDATA[
+        ]]><map><![CDATA[
+          ]]><entry><![CDATA[
+            ]]><string><![CDATA[selected]]></string><![CDATA[
+            ]]><string><![CDATA[false]]></string><![CDATA[
+          ]]></entry><![CDATA[
+          ]]><entry><![CDATA[
+            ]]><string><![CDATA[endpoint]]></string><![CDATA[
+            ]]><string><![CDATA[appnet-guid://C831943261F6DCE1E7FF351AA6AF31E33DDE846F7A870EB34E79B012FAA586E0]]></string><![CDATA[
+          ]]></entry><![CDATA[
+        ]]></map><![CDATA[
+      ]]></model><![CDATA[
+      ]]><listeners><![CDATA[
+        ]]><com.approuter.studio.connectors.http.tasks.HTTPRecieveRequstTask><![CDATA[
+          ]]><key><![CDATA[setupWorkflowTask]]></key><![CDATA[
+          ]]><children><![CDATA[
+            ]]><com.approuter.studio.connectors.task.ActivityRefTask><![CDATA[
+              ]]><key><![CDATA[requestHeadersTask]]></key><![CDATA[
+              ]]><children/><![CDATA[
+              ]]><model><![CDATA[
+                ]]><map><![CDATA[
+                  ]]><entry><![CDATA[
+                    ]]><string><![CDATA[isIncludeStandardHeaders]]></string><![CDATA[
+                    ]]><boolean><![CDATA[false]]></boolean><![CDATA[
+                  ]]></entry><![CDATA[
+                  ]]><entry><![CDATA[
+                    ]]><string><![CDATA[selected]]></string><![CDATA[
+                    ]]><string><![CDATA[false]]></string><![CDATA[
+                  ]]></entry><![CDATA[
+                ]]></map><![CDATA[
+              ]]></model><![CDATA[
+              ]]><listeners/><![CDATA[
+            ]]></com.approuter.studio.connectors.task.ActivityRefTask><![CDATA[
+          ]]></children><![CDATA[
+          ]]><model><![CDATA[
+            ]]><map><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_receive_requiresreply]]></string><![CDATA[
+                ]]><boolean><![CDATA[false]]></boolean><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_receive_accept_method]]></string><![CDATA[
+                ]]><string><![CDATA[ALL]]></string><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[selected]]></string><![CDATA[
+                ]]><string><![CDATA[true]]></string><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_compresion]]></string><![CDATA[
+                ]]><boolean><![CDATA[false]]></boolean><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_need_reply]]></string><![CDATA[
+                ]]><boolean><![CDATA[false]]></boolean><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_receive_binary]]></string><![CDATA[
+                ]]><boolean><![CDATA[false]]></boolean><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_receive_path]]></string><![CDATA[
+                ]]><string/><![CDATA[
+              ]]></entry><![CDATA[
+              ]]><entry><![CDATA[
+                ]]><string><![CDATA[http_receive_extrapath]]></string><![CDATA[
+                ]]><string><![CDATA[/deletesfdc]]></string><![CDATA[
+              ]]></entry><![CDATA[
+            ]]></map><![CDATA[
+          ]]></model><![CDATA[
+          ]]><listeners><![CDATA[
+            ]]><com.approuter.studio.connectors.task.MapTask><![CDATA[
+              ]]><key><![CDATA[mapOutputsTask]]></key><![CDATA[
+              ]]><children/><![CDATA[
+              ]]><model><![CDATA[
+                ]]><map><![CDATA[
+                  ]]><entry><![CDATA[
+                    ]]><string><![CDATA[selected]]></string><![CDATA[
+                    ]]><string><![CDATA[false]]></string><![CDATA[
+                  ]]></entry><![CDATA[
+                ]]></map><![CDATA[
+              ]]></model><![CDATA[
+              ]]><listeners/><![CDATA[
+            ]]></com.approuter.studio.connectors.task.MapTask><![CDATA[
+          ]]></listeners><![CDATA[
+        ]]></com.approuter.studio.connectors.http.tasks.HTTPRecieveRequstTask><![CDATA[
+      ]]></listeners><![CDATA[
+    ]]></com.approuter.studio.connectors.http.tasks.HTTPEndpointTask><![CDATA[
+    ]]><com.approuter.studio.connectors.http.tasks.HTTPRecieveRequstTask reference="../com.approuter.studio.connectors.http.tasks.HTTPEndpointTask/listeners/com.approuter.studio.connectors.http.tasks.HTTPRecieveRequstTask"/><![CDATA[
+    ]]><com.approuter.studio.connectors.task.MapTask reference="../com.approuter.studio.connectors.http.tasks.HTTPEndpointTask/listeners/com.approuter.studio.connectors.http.tasks.HTTPRecieveRequstTask/listeners/com.approuter.studio.connectors.task.MapTask"/><![CDATA[
+  ]]></tasks><![CDATA[
+  ]]><valid><![CDATA[false]]></valid><![CDATA[
+]]></com.approuter.studio.connectors.task.TaskList></tasksConfig></start><invoke activityId="6" activityName="" comments="" configurationId="sfdc_query_id" description="Esegui query oggetti" expanded="true" moduleName="http://www.approuter.com/module/sfdc/" name="Esegui query oggetti" partnerLink=""><inputMapSpecConfig><mapSpec context="orchestration" optionalParameterVisible="false" version="1.0" xmlns="http://www.approuter.com/schemas/2003/1/transformation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><specInfo><destination activityId="6" canBeSubstitutedFromUI="true" displayName="parameters" isParameter="true" location="params-param.xsd-6" locationType="2" logicalName="dstDoc1" messageType="parameters" namespace="urn:sobject.partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="parameters" originalRootNodeNameNS="urn:sobject.partner.soap.sforce.com" rootNodeName="parameters" varName="parameters"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="MruHeader" isParameter="true" location="mru-param.xsd-6" locationType="2" logicalName="dstDoc2" messageType="MruHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="MruHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="MruHeader"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="CallOptions" isParameter="true" location="callOptions-param.xsd-6" locationType="2" logicalName="dstDoc3" messageType="CallOptions" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="CallOptions" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="CallOptions"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="PackageVersionHeader" isParameter="true" location="packageVersionHeader-param.xsd-6" locationType="2" logicalName="dstDoc4" messageType="PackageVersionHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="PackageVersionHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="PackageVersionHeader"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="connection" isParameter="true" location="loginCredentials-param.xsd-6" locationType="2" logicalName="dstDoc5" messageType="connection" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="true" originalRootNodeName="connection" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="connection"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="sessionInfo" isParameter="true" location="sessionInfo-param.xsd-6" locationType="2" logicalName="dstDoc6" messageType="sessionInfo" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="true" originalRootNodeName="sessionInfo" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="sessionInfo"/></specInfo><doMapping/></mapSpec></inputMapSpecConfig><outputMapSpecConfig><mapSpec context="orchestration" optionalParameterVisible="false" version="1.0" xmlns="http://www.approuter.com/schemas/2003/1/transformation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><specInfo><source activityId="6" canBeSubstitutedFromUI="true" displayName="objects" isParameter="true" location="objects-param.xsd-6" locationType="2" logicalName="srcDoc1" messageType="objects" namespace="urn:sobject.partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="objects" originalRootNodeNameNS="urn:sobject.partner.soap.sforce.com" rootNodeName="objects" varName="objects"/><source activityId="6" canBeSubstitutedFromUI="true" displayName="sessionInfo" isParameter="true" location="sessionInfo-out-param.xsd-6" locationType="2" logicalName="srcDoc2" messageType="sessionInfo" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="false" originalRootNodeName="sessionInfo" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="sessionInfo"/><destination activityId="6" canBeSubstitutedFromUI="true" displayName="objects" isParameter="false" location="objects-param.xsd-6" locationType="2" logicalName="dstDoc1" messageType="objects" namespace="urn:sobject.partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="objects" originalRootNodeNameNS="urn:sobject.partner.soap.sforce.com" rootNodeName="objects" varName="objects"/></specInfo><doMapping><rule emitCData="false" guaranteed="true"><do guaranteed="true"><from docName="srcDoc1" path="/objects/Sintesi_SWIFT__c/ihmap:instances"/><to docName="dstDoc1" path="/objects/Sintesi_SWIFT__c/ihmap:instances"/></do></rule><rule emitCData="false" guaranteed="true"><do guaranteed="true"><from docName="srcDoc1" path="/objects/Sintesi_SWIFT__c/Id"/><to docName="dstDoc1" path="/objects/Sintesi_SWIFT__c/Id"/></do></rule></doMapping></mapSpec></outputMapSpecConfig><model><queryObjects batchSize="500" connectionTimeout="300" endpoint="/Endpoints/Salesforce" includeDeleted="false" maxRetries="5" query="SELECT Id FROM Sintesi_SWIFT__c" retryInterval="30" valid="true" xmlns="http://www.approuter.com/schemas/module/sfdc/activity/1.0"/></model></invoke><invoke activityId="5" activityName="" comments="" configurationId="sfdc_delete_id" description="Elimina oggetti" expanded="true" moduleName="http://www.approuter.com/module/sfdc/" name="Elimina oggetti" partnerLink=""><inputMapSpecConfig><mapSpec context="orchestration" optionalParameterVisible="false" version="1.0" xmlns="http://www.approuter.com/schemas/2003/1/transformation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><specInfo><source activityId="6" canBeSubstitutedFromUI="true" displayName="objects" isParameter="false" location="objects-param.xsd-6" locationType="2" logicalName="srcDoc1" messageType="objects" namespace="urn:sobject.partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="objects" originalRootNodeNameNS="urn:sobject.partner.soap.sforce.com" rootNodeName="objects" varName="objects"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="ids" isParameter="true" location="ids-param.xsd-5" locationType="2" logicalName="dstDoc1" messageType="ids" namespace="urn:partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="ids" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="ids"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="UserTerritoryDeleteHeader" isParameter="true" location="userTerritoryDelete-param.xsd-5" locationType="2" logicalName="dstDoc2" messageType="UserTerritoryDeleteHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="UserTerritoryDeleteHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="UserTerritoryDeleteHeader"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="CallOptions" isParameter="true" location="callOptions-param.xsd-5" locationType="2" logicalName="dstDoc3" messageType="CallOptions" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="CallOptions" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="CallOptions"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="EmailHeader" isParameter="true" location="email-param.xsd-5" locationType="2" logicalName="dstDoc4" messageType="EmailHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="EmailHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="EmailHeader"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="PackageVersionHeader" isParameter="true" location="packageVersionHeader-param.xsd-5" locationType="2" logicalName="dstDoc5" messageType="PackageVersionHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="PackageVersionHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="PackageVersionHeader"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="DisableFeedTrackingHeader" isParameter="true" location="disableFeedTracking-param.xsd-5" locationType="2" logicalName="dstDoc6" messageType="DisableFeedTrackingHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="DisableFeedTrackingHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="DisableFeedTrackingHeader"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="connection" isParameter="true" location="loginCredentials-param.xsd-5" locationType="2" logicalName="dstDoc7" messageType="connection" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="true" originalRootNodeName="connection" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="connection"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="sessionInfo" isParameter="true" location="sessionInfo-param.xsd-5" locationType="2" logicalName="dstDoc8" messageType="sessionInfo" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="true" originalRootNodeName="sessionInfo" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="sessionInfo"/><destination activityId="5" canBeSubstitutedFromUI="true" displayName="AllOrNoneHeader" isParameter="true" location="allOrNoneHeader.xsd-5" locationType="2" logicalName="dstDoc9" messageType="AllOrNoneHeader" namespace="urn:partner.soap.sforce.com" optionalParameter="true" originalRootNodeName="AllOrNoneHeader" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="AllOrNoneHeader"/></specInfo><doMapping><rule emitCData="false" guaranteed="true"><do guaranteed="true"><from docName="srcDoc1" path="/objects/Sintesi_SWIFT__c/ihmap:instances"/><to docName="dstDoc1" path="/ids/id/ihmap:instances"/></do></rule><rule emitCData="false" guaranteed="true"><do guaranteed="true"><from docName="srcDoc1" path="/objects/Sintesi_SWIFT__c/Id"/><to docName="dstDoc1" path="/ids/id"/></do></rule></doMapping></mapSpec></inputMapSpecConfig><outputMapSpecConfig><mapSpec context="orchestration" optionalParameterVisible="false" version="1.0" xmlns="http://www.approuter.com/schemas/2003/1/transformation/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><specInfo><source activityId="5" canBeSubstitutedFromUI="true" displayName="results" isParameter="true" location="deleteResult-param.xsd-5" locationType="2" logicalName="srcDoc1" messageType="results" namespace="urn:partner.soap.sforce.com" optionalParameter="false" originalRootNodeName="results" originalRootNodeNameNS="urn:partner.soap.sforce.com" rootNodeName="results"/><source activityId="5" canBeSubstitutedFromUI="true" displayName="sessionInfo" isParameter="true" location="sessionInfo-out-param.xsd-5" locationType="2" logicalName="srcDoc2" messageType="sessionInfo" namespace="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" optionalParameter="false" originalRootNodeName="sessionInfo" originalRootNodeNameNS="http://www.approuter.com/schemas/2007/1/module/sfdc/connectionparam" rootNodeName="sessionInfo"/></specInfo><doMapping/></mapSpec></outputMapSpecConfig><model><deleteObjects connectionTimeout="300" endpoint="/Endpoints/Salesforce" maxRetries="5" retryInterval="30" xmlns="http://www.approuter.com/schemas/module/sfdc/activity/1.0"/></model></invoke></sequence></process>

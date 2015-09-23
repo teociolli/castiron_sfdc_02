@@ -1,0 +1,19 @@
+<document name="dummy4" documentNamespace="" encoding="US ASCII" serializeCRLF="true" eosDelimited="true" xmlns="http://www.approuter.com/schemas/2003/2/connector/file/fsd/">
+  <types/>
+  <message name="dummy4" recordTemplate="" structure="positional" maxOccurs="1" minOccurs="1">
+    <children>
+      <order>
+        <field name="f1" fieldTemplate="" offset="1" length="20" minOccurs="1" maxOccurs="1"/>
+      </order>
+      <order>
+        <field name="f2" fieldTemplate="" offset="1" length="20" minOccurs="1" maxOccurs="1"/>
+      </order>
+      <order>
+        <field name="f3" fieldTemplate="" offset="1" length="20" minOccurs="1" maxOccurs="1"/>
+      </order>
+      <order>
+        <field name="f4" fieldTemplate="" offset="1" length="20" minOccurs="1" maxOccurs="1"/>
+      </order>
+    </children>
+  </message>
+</document>

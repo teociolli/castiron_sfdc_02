@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document><main name="schema01.xsd" type="http://www.approuter.com/schemas/2003/1/xmlschema/"><schema elementFormDefault="qualified" targetNamespace="http://www.example.org/senderSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/senderSchema">
+
+	<element name="sender" type="tns:senderTy"/><element name="sndg" type="tns:sndgTy"/><complexType name="senderTy">
+		<sequence>
+			<element name="old" type="string"/><element name="new" type="string"/></sequence></complexType><complexType name="sndgTy">
+		<sequence>
+			<element name="old" type="string"/><element name="new" type="string"/></sequence></complexType></schema></main></document>
